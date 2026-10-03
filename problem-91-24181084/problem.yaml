@@ -1,0 +1,9 @@
+name: Quokka Express
+uuid: 62fb5108-a697-4d80-86ec-c403198b8d34
+author: Thomas Zeng (24181084)
+source: CITS3001 Project 2026 - Group 91
+license: cc by-sa
+validation: default
+limits:
+  time_multiplier: 2
+  memory: 1024

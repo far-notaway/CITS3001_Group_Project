@@ -1,0 +1,65 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{Quokka Express}}\\
+Solution description\\
+Thomas Zeng (24181084), Group 91
+\end{center}
+
+\section*{Problem summary}
+
+Quincy starts at camp $1$ and wants to reach camp $n$. Every trail has a walking time. Quincy has one pass that can make one trail take $0$ minutes. We need to find the smallest total time.
+
+\section*{Main idea}
+
+I use Dijkstra's algorithm from the CITS3001 shortest path lectures. Every camp has two states:
+
+\begin{itemize}
+    \item $(v,0)$ means Quincy is at camp $v$ and the pass is ready.
+    \item $(v,1)$ means Quincy is at camp $v$ and the pass was used.
+\end{itemize}
+
+I store the graph in an adjacency list and use a binary min-heap. For a trail $(u,v)$ with time $w$, Quincy can walk normally and add $w$ to the time. If the pass is ready, he can also cross for free and change from state $0$ to state $1$.
+
+I start Dijkstra at $(1,0)$. The answer is
+\[
+\min(d[n][0],d[n][1]).
+\]
+
+\section*{Pseudocode}
+
+\begin{verbatim}
+dist[1][0] = 0
+put (0, 1, 0) in the heap
+while the heap is not empty:
+    take the state with the smallest time
+    try every normal move
+    if the pass is ready, also try the free move
+return min(dist[n][0], dist[n][1])
+\end{verbatim}
+
+\section*{Why it works}
+
+Before Quincy uses the pass, he stays in state $0$. When he uses it, he moves to state $1$. There is no move back to state $0$, so he cannot use the pass twice.
+
+Every real trip can be shown as a path in these states. Also, every path in these states follows the rules of the problem. All move costs are $0$ or more, so Dijkstra finds the smallest time. This means the smaller ending distance is the right answer.
+
+\section*{Complexity}
+
+There are $2n$ states and $O(m)$ state moves. Each heap operation costs $O(\log n)$, so the time complexity is $O((n+m)\log n)$. The adjacency list and distance table use $O(n+m)$ space.
+
+\section*{Why simple ideas fail}
+
+One wrong idea is to find the normal shortest path first and make its biggest trail free. A different path may become better after using the pass. Running Dijkstra again for every trail also works too slowly.
+
+\section*{AI use}
+
+I used ChatGPT/Codex to help me plan the story, write and shorten the English, make test ideas, write and check the Python solutions, and put the problem files together. I read the final problem, code, tests, and solution notes and checked that they work.
+
+\end{document}

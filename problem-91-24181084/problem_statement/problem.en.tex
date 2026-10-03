@@ -1,0 +1,31 @@
+\problemname{Quokka Express}
+
+Quincy the quokka has a package. He starts at camp $1$ and needs to get to camp $n$. There are trails between the camps. Every trail goes both ways, and each trail takes some time to walk.
+
+Quincy also has one Express Pass. He can use it on one trail, and that trail will take $0$ minutes. He can only use the pass once. He does not have to use it.
+
+Find the smallest amount of time Quincy needs to reach camp $n$.
+
+\section*{Input}
+
+The first line has two integers $n$ and $m$ ($2 \le n \le 200\,000$, $1 \le m \le 300\,000$). They are the number of camps and trails.
+
+The next $m$ lines each have three integers $u$, $v$, and $w$ ($1 \le u,v \le n$, $u \ne v$, $1 \le w \le 10^9$). There is a trail between camps $u$ and $v$. It takes $w$ minutes to walk without the pass.
+
+It is possible to reach every camp. There can be more than one trail between the same two camps.
+
+\section*{Output}
+
+Print one integer: the smallest time Quincy needs to go from camp $1$ to camp $n$.
+
+\section*{Sample 1 explanation}
+
+Without the pass, the best route is $1 \rightarrow 2 \rightarrow 4$, which takes $9$ minutes. Quincy can take $1 \rightarrow 3 \rightarrow 4$ instead. He uses the pass on the first trail, so the trip only takes $1$ minute.
+
+\section*{Sample 2 explanation}
+
+Quincy takes the route $1 \rightarrow 4 \rightarrow 5 \rightarrow 6$. He uses the pass on the trail from camp $1$ to camp $4$. The other two trails take $2$ minutes each, so the answer is $4$.
+
+\section*{Sample 3 explanation}
+
+There is only one trail. Quincy uses the pass on it, so the answer is $0$.
