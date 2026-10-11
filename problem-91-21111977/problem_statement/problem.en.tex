@@ -1,0 +1,49 @@
+\problemname{Hardening Before Sunrise}
+
+An overnight security review has identified several servers that can be
+hardened before staff arrive in the morning. There are $B$ minutes remaining
+before sunrise, and only one maintenance team is available.
+
+There are $n$ servers. Each server has one or more hardening profiles. Applying
+a profile takes a certain number of minutes and reduces the server's security
+risk by a certain number of points.
+
+The profiles for a server are alternative configurations, so at most one
+profile may be applied to each server. A server may also be skipped. The team
+works on one server at a time, so the durations of the selected profiles are
+added together.
+
+Choose the profiles that give the greatest total risk reduction without using
+more than $B$ minutes.
+
+\section*{Input}
+
+The first line contains two integers $n$ and $B$, the number of servers and the
+number of minutes available.
+
+The servers are then described in order. For each server $i$:
+
+\begin{itemize}
+    \item The first line contains an integer $k_i$, the number of available
+          profiles for that server.
+    \item Each of the next $k_i$ lines contains two integers $d_{i,j}$ and
+          $r_{i,j}$. The profile takes $d_{i,j}$ minutes and reduces risk by
+          $r_{i,j}$ points.
+\end{itemize}
+
+The input satisfies the following constraints:
+
+\begin{itemize}
+    \item $1 \le n \le 200$;
+    \item $1 \le B \le 10\,000$;
+    \item $1 \le k_i \le 1\,000$;
+    \item the total number of profiles is at most $1\,000$;
+    \item $1 \le d_{i,j} \le 10^9$; and
+    \item $1 \le r_{i,j} \le 10^9$.
+\end{itemize}
+
+\section*{Output}
+
+Output the maximum total risk reduction that can be achieved within the
+available time. If no profile fits, output $0$.
+

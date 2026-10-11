@@ -1,0 +1,11 @@
+uuid: 9fe67d52-7b05-458f-90fe-b5e4f2248ea0
+name: Hardening Before Sunrise
+author: Robin Candy
+source: CITS3001 Advanced Algorithms Group Project
+rights_owner: Robin Candy
+license: educational
+limits:
+  time_multiplier: 5
+  time_safety_margin: 2
+  memory: 2048
+
